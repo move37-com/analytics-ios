@@ -45,10 +45,10 @@
 
 @end
 
+#endif
+
 @implementation SEGAnalyticsExperimental
 @end
-
-#endif
 
 @interface SEGAnalyticsConfiguration ()
 
