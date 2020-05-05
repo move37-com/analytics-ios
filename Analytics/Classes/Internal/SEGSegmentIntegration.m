@@ -115,7 +115,9 @@ static BOOL GetAdTrackingEnabled()
 #if !TARGET_OS_TV
         // Check for previous queue/track data in NSUserDefaults and remove if present
         [self dispatchBackground:^{
-            // Check for previous track data in NSUserDefaults and remove if present (Traits still exist in NSUserDefaults on tvOS)
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:SEGQueueKey]) {
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:SEGQueueKey];
+            }
             if ([[NSUserDefaults standardUserDefaults] objectForKey:SEGTraitsKey]) {
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:SEGTraitsKey];
             }
@@ -133,12 +135,6 @@ static BOOL GetAdTrackingEnabled()
         
         [NSRunLoop.mainRunLoop addTimer:self.flushTimer
                                 forMode:NSDefaultRunLoopMode];
-        
-
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(updateStaticContext)
-                                                     name:UIApplicationWillEnterForegroundNotification
-                                                   object:nil];
     }
     return self;
 }
