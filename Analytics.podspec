@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.13'
 
-  s.ios.frameworks = 'CoreTelephony'
-  s.frameworks = 'Security', 'StoreKit', 'SystemConfiguration', 'UIKit'
+  s.ios.frameworks = 'CoreTelephony', 'UIKit'
+  s.frameworks = 'Security', 'StoreKit', 'SystemConfiguration'
 
   s.source_files = [
     'Analytics/Classes/**/*',
