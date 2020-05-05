@@ -45,6 +45,9 @@
 
 @end
 
+@implementation SEGAnalyticsExperimental
+@end
+
 #endif
 
 @interface SEGAnalyticsConfiguration ()

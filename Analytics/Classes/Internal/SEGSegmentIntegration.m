@@ -115,11 +115,6 @@ static BOOL GetAdTrackingEnabled()
 #if !TARGET_OS_TV
         // Check for previous queue/track data in NSUserDefaults and remove if present
         [self dispatchBackground:^{
-            // Check for previous queue data in NSUserDefaults and remove if present.
-            if ([[NSUserDefaults standardUserDefaults] objectForKey:SEGQueueKey]) {
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:SEGQueueKey];
-            }
-#if !TARGET_OS_TV
             // Check for previous track data in NSUserDefaults and remove if present (Traits still exist in NSUserDefaults on tvOS)
             if ([[NSUserDefaults standardUserDefaults] objectForKey:SEGTraitsKey]) {
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:SEGTraitsKey];
