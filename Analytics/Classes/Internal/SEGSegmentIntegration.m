@@ -119,8 +119,8 @@ static BOOL GetAdTrackingEnabled()
             if ([[NSUserDefaults standardUserDefaults] objectForKey:SEGTraitsKey]) {
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:SEGTraitsKey];
             }
-#endif
         }];
+#endif
         [self dispatchBackground:^{
             [self trackAttributionData:self.configuration.trackAttributionData];
         }];
